@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clothes Forest | Fashion Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <!-- Logo -->
+        <div class="logo">
+            Clothes <span>Forest</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <!-- Right Side -->
+        <div class="nav-actions">
+
+            <button onclick="openSearch()" title="Search">
+                🔍
+            </button>
+
+            <a href="cart.html" class="cart">
+                🛒
+                <span id="cartCount">0</span>
+            </a>
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SEARCH BOX ================= -->
+
+    <div class="search-box" id="searchBox">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search clothes..."
+            onkeyup="searchProducts()"
+        >
+
+        <button onclick="closeSearch()">
+            ✕
+        </button>
+
+    </div>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WELCOME TO CLOTHES FOREST
+            </p>
+
+            <h1>
+                Your Style.<br>
+                Your <span>Forest.</span>
+            </h1>
+
+            <p>
+                Explore trendy fashion, discover your style
+                and find clothes that make you feel confident.
+            </p>
+
+            <a href="#shop" class="shop-btn">
+                Explore Collection →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="categories" id="categories">
+
+        <p class="small-title">
+            EXPLORE
+        </p>
+
+        <h2>
+            Shop By Category
+        </h2>
+
+        <div class="category-container">
+
+            <!-- T-Shirts -->
+            <div class="category-card">
+
+                <div class="category-icon">
+                    👕
+                </div>
+
+                <h3>
+                    T-Shirts
+                </h3>
+
+                <p>
+                    Everyday style
+                </p>
+
+            </div>
+
+
+            <!-- Shirts -->
+            <div class="category-card">
+
+                <div class="category-icon">
+                    👔
+                </div>
+
+                <h3>
+                    Shirts
+                </h3>
+
+                <p>
+                    Smart & stylish
+                </p>
+
+            </div>
+
+
+            <!-- Jeans -->
+            <div class="category-card">
+
+                <div class="category-icon">
+                    👖
+                </div>
+
+                <h3>
+                    Jeans
+                </h3>
+
+                <p>
+                    Perfect fit
+                </p>
+
+            </div>
+
+
+            <!-- Jackets -->
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🧥
+                </div>
+
+                <h3>
+                    Jackets
+                </h3>
+
+                <p>
+                    Premium collection
+                </p>
+
+            </div>
+
+
+            <!-- Accessories -->
+            <div class="category-card">
+
+                <div class="category-icon">
+                    🧢
+                </div>
+
+                <h3>
+                    Accessories
+                </h3>
+
+                <p>
+                    Complete your look
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="products" id="shop">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="small-title">
+                    TRENDING COLLECTION
+                </p>
+
+                <h2>
+                    Featured Clothes
+                </h2>
+
+            </div>
+
+
+            <!-- Sort -->
+            <select
+                id="sortProducts"
+                onchange="sortProducts()"
+            >
+
+                <option value="default">
+                    Sort By
+                </option>
+
+                <option value="low">
+                    Price: Low to High
+                </option>
+
+                <option value="high">
+                    Price: High to Low
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Product Container -->
+
+        <div
+            class="product-container"
+            id="productContainer"
+        >
+
+
+            <!-- ================= PRODUCT 1 ================= -->
+
+            <div
+                class="product-card"
+                data-name="Oversized Black T-Shirt"
+                data-price="699"
+            >
+
+                <div class="product-image">
+
+                    <span class="badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"
+                        alt="Oversized Black T-Shirt"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <p class="category">
+                        T-Shirt
+                    </p>
+
+                    <h3>
+                        Oversized Black T-Shirt
+                    </h3>
+
+                    <div class="price">
+                        ₹699
+                    </div>
+
+                    <button
+                        onclick="addToCart('Oversized Black T-Shirt', 699)"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PRODUCT 2 ================= -->
+
+            <div
+                class="product-card"
+                data-name="Classic White Shirt"
+                data-price="999"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600"
+                        alt="Classic White Shirt"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <p class="category">
+                        Shirt
+                    </p>
+
+                    <h3>
+                        Classic White Shirt
+                    </h3>
+
+                    <div class="price">
+                        ₹999
+                    </div>
+
+                    <button
+                        onclick="addToCart('Classic White Shirt', 999)"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PRODUCT 3 ================= -->
+
+            <div
+                class="product-card"
+                data-name="Blue Denim Jeans"
+                data-price="1299"
+            >
+
+                <div class="product-image">
+
+                    <span class="badge">
+                        SALE
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"
+                        alt="Blue Denim Jeans"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <p class="category">
+                        Jeans
+                    </p>
+
+                    <h3>
+                        Blue Denim Jeans
+                    </h3>
+
+                    <div class="price">
+                        ₹1,299
+                    </div>
+
+                    <button
+                        onclick="addToCart('Blue Denim Jeans', 1299)"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PRODUCT 4 ================= -->
+
+            <div
+                class="product-card"
+                data-name="Premium Hoodie"
+                data-price="1499"
+            >
+
+                <div class="product-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"
+                        alt="Premium Hoodie"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <p class="category">
+                        Hoodie
+                    </p>
+
+                    <h3>
+                        Premium Hoodie
+                    </h3>
+
+                    <div class="price">
+                        ₹1,499
+                    </div>
+
+                    <button
+                        onclick="addToCart('Premium Hoodie', 1499)"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= OFFER ================= -->
+
+    <section class="offer">
+
+        <div>
+
+            <p>
+                SPECIAL OFFER
+            </p>
+
+            <h2>
+                Get 30% OFF
+            </h2>
+
+            <span>
+                On your first order
+            </span>
+
+            <br>
+            <br>
+
+            <button onclick="claimOffer()">
+                Shop Now
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div>
+
+            <p class="small-title">
+                ABOUT CLOTHES FOREST
+            </p>
+
+            <h2>
+                Find your style.<br>
+                Wear your confidence.
+            </h2>
+
+            <p>
+                Clothes Forest is a modern fashion store where
+                style meets comfort. Explore our collection of
+                trendy clothes, quality products and affordable
+                fashion for your everyday look.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Clothes <span>Forest</span>
+        </div>
+
+        <p>
+            © 2026 Clothes Forest. All rights reserved.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                Facebook
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

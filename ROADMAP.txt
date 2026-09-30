@@ -1,0 +1,32 @@
+clothing-store/
+│
+├── index.php
+├── products.php
+├── product.php
+├── cart.php
+├── checkout.php
+├── orders.php
+│
+├── login.php
+├── register.php
+├── logout.php
+│
+├── admin/
+│   ├── login.php
+│   ├── dashboard.php
+│   ├── add-product.php
+│   ├── products.php
+│   ├── edit-product.php
+│   └── orders.php
+│
+├── user/
+│   ├── profile.php
+│   └── orders.php
+│
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+└── config/
+    └── database.php
