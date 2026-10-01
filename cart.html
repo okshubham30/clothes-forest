@@ -1,0 +1,1498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart | Clothes Forest</title>
+
+    <style>
+
+        /* ================= RESET ================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #111;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            width: 100%;
+            min-height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: #050505;
+            color: white;
+
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #00bfff;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .navbar nav a:hover {
+            color: #00bfff;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+
+            padding: 9px 15px;
+
+            border: 1px solid #00bfff;
+            border-radius: 6px;
+
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #00bfff;
+            color: #000;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 23px;
+        }
+
+        .cart-icon span {
+            position: absolute;
+
+            top: -9px;
+            right: -10px;
+
+            min-width: 19px;
+            height: 19px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #00bfff;
+            color: #000;
+
+            border-radius: 50%;
+
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+
+        /* ================= CART PAGE ================= */
+
+        .cart-page {
+            width: 90%;
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding: 70px 0;
+        }
+
+        .cart-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .small-title {
+            color: #00a8e8;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+        .cart-heading h1 {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .cart-heading h1 span {
+            color: #00a8e8;
+        }
+
+        .cart-heading p:last-child {
+            color: #777;
+        }
+
+
+        /* ================= LAYOUT ================= */
+
+        .cart-layout {
+            display: grid;
+
+            grid-template-columns: 1fr 380px;
+
+            gap: 35px;
+
+            align-items: start;
+        }
+
+
+        /* ================= CART ITEMS ================= */
+
+        .cart-items {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .cart-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 25px;
+        }
+
+        .cart-top h2 {
+            font-size: 23px;
+        }
+
+        .clear-btn {
+            border: none;
+
+            background: transparent;
+
+            color: #e63946;
+
+            cursor: pointer;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .clear-btn:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ================= PRODUCT ================= */
+
+        .cart-product {
+            display: grid;
+
+            grid-template-columns: 110px 1fr auto;
+
+            gap: 20px;
+
+            align-items: center;
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-product img {
+            width: 110px;
+            height: 110px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        .product-category {
+            color: #888;
+
+            font-size: 13px;
+
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: #00a8e8;
+        }
+
+
+        /* ================= QUANTITY ================= */
+
+        .quantity {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 12px;
+        }
+
+        .quantity button {
+            width: 30px;
+            height: 30px;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            cursor: pointer;
+
+            border-radius: 5px;
+
+            font-size: 17px;
+        }
+
+        .quantity button:hover {
+            border-color: #00bfff;
+            color: #00a8e8;
+        }
+
+        .quantity span {
+            min-width: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        /* ================= PRODUCT RIGHT ================= */
+
+        .product-right {
+            text-align: right;
+        }
+
+        .item-total {
+            font-size: 18px;
+            font-weight: bold;
+
+            margin-bottom: 20px;
+        }
+
+        .remove-btn {
+            border: none;
+
+            background: transparent;
+
+            color: #e63946;
+
+            cursor: pointer;
+
+            font-size: 13px;
+        }
+
+        .remove-btn:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ================= EMPTY CART ================= */
+
+        .empty-cart {
+            text-align: center;
+
+            padding: 60px 20px;
+        }
+
+        .empty-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .empty-cart h2 {
+            margin-bottom: 8px;
+        }
+
+        .empty-cart p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #00bfff;
+            color: #000;
+
+            padding: 13px 24px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .shop-btn:hover {
+            background: #008fd1;
+            color: white;
+        }
+
+
+        /* ================= SUMMARY ================= */
+
+        .summary {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+
+            position: sticky;
+            top: 20px;
+        }
+
+        .summary h2 {
+            margin-bottom: 25px;
+        }
+
+        .summary-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 17px;
+
+            color: #666;
+        }
+
+        .summary-row strong {
+            color: #111;
+        }
+
+        .discount-row strong {
+            color: #16a34a;
+        }
+
+        .divider {
+            height: 1px;
+
+            background: #eee;
+
+            margin: 20px 0;
+        }
+
+        .summary-total {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            font-size: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .summary-total strong {
+            color: #00a8e8;
+        }
+
+
+        /* ================= COUPON ================= */
+
+        .coupon {
+            display: flex;
+
+            gap: 8px;
+
+            margin-bottom: 8px;
+        }
+
+        .coupon input {
+            flex: 1;
+
+            min-width: 0;
+
+            padding: 12px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 6px;
+
+            outline: none;
+        }
+
+        .coupon input:focus {
+            border-color: #00bfff;
+        }
+
+        .coupon button {
+            padding: 0 15px;
+
+            border: none;
+
+            background: #111;
+
+            color: white;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .coupon button:hover {
+            background: #00bfff;
+            color: #000;
+        }
+
+        .coupon-message {
+            min-height: 18px;
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* ================= CHECKOUT ================= */
+
+        .checkout-btn {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #00bfff;
+
+            color: #000;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #008fd1;
+            color: white;
+        }
+
+        .continue-btn {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #333;
+
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+        .continue-btn:hover {
+            color: #00a8e8;
+        }
+
+        .secure {
+            text-align: center;
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #eee;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #050505;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            margin-top: 40px;
+        }
+
+        .footer-logo {
+            font-size: 23px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .footer-logo span {
+            color: #00bfff;
+        }
+
+        footer p {
+            color: #888;
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #00bfff;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 15px 5%;
+            }
+
+            .navbar nav {
+                display: none;
+            }
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .summary {
+                position: static;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .cart-page {
+                width: 94%;
+                padding: 45px 0;
+            }
+
+            .cart-heading h1 {
+                font-size: 34px;
+            }
+
+            .cart-items {
+                padding: 18px;
+            }
+
+            .cart-product {
+                grid-template-columns: 75px 1fr;
+                gap: 12px;
+            }
+
+            .cart-product img {
+                width: 75px;
+                height: 85px;
+            }
+
+            .product-right {
+                grid-column: 2;
+
+                text-align: left;
+
+                display: flex;
+
+                justify-content: space-between;
+
+                align-items: center;
+            }
+
+            .item-total {
+                margin-bottom: 0;
+            }
+
+            .summary {
+                padding: 22px;
+            }
+
+            .back-btn {
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Clothes <span>Forest</span>
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#shop">
+                Shop
+            </a>
+
+            <a href="index.html#categories">
+                Categories
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <a href="index.html" class="back-btn">
+                ← Shop
+            </a>
+
+            <div class="cart-icon">
+
+                🛒
+
+                <span id="cartCount">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="cart-page">
+
+
+        <!-- HEADING -->
+
+        <div class="cart-heading">
+
+            <p class="small-title">
+                YOUR SHOPPING BAG
+            </p>
+
+            <h1>
+                Shopping <span>Cart</span>
+            </h1>
+
+            <p>
+                Review your items before placing your order.
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= CART LAYOUT ================= -->
+
+        <div class="cart-layout">
+
+
+            <!-- LEFT SIDE -->
+
+            <section class="cart-items">
+
+                <div class="cart-top">
+
+                    <h2>
+                        Your Items
+                    </h2>
+
+                    <button
+                        class="clear-btn"
+                        onclick="clearCart()">
+
+                        Clear Cart
+
+                    </button>
+
+                </div>
+
+
+                <div id="cartContainer">
+
+                </div>
+
+
+                <!-- EMPTY CART -->
+
+                <div
+                    id="emptyCart"
+                    class="empty-cart"
+                    style="display:none;">
+
+                    <div class="empty-icon">
+                        🛒
+                    </div>
+
+                    <h2>
+                        Your cart is empty
+                    </h2>
+
+                    <p>
+                        Looks like you haven't added anything yet.
+                    </p>
+
+                    <a
+                        href="index.html#shop"
+                        class="shop-btn">
+
+                        Start Shopping →
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= SUMMARY ================= -->
+
+            <aside class="summary">
+
+                <h2>
+                    Order Summary
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="subtotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <strong id="delivery">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row discount-row">
+
+                    <span>
+                        Discount
+                    </span>
+
+                    <strong id="discount">
+                        - ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="divider"></div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="total">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+
+                <!-- COUPON -->
+
+                <div class="coupon">
+
+                    <input
+                        type="text"
+                        id="couponInput"
+                        placeholder="Enter coupon code">
+
+                    <button onclick="applyCoupon()">
+                        Apply
+                    </button>
+
+                </div>
+
+                <p
+                    id="couponMessage"
+                    class="coupon-message">
+                </p>
+
+
+
+                <!-- CHECKOUT -->
+
+                <button
+                    class="checkout-btn"
+                    onclick="checkout()">
+
+                    Proceed to Checkout →
+
+                </button>
+
+
+                <a
+                    href="index.html#shop"
+                    class="continue-btn">
+
+                    ← Continue Shopping
+
+                </a>
+
+
+                <div class="secure">
+
+                    🔒 Secure & Safe Checkout
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            Clothes <span>Forest</span>
+
+        </div>
+
+        <p>
+            © 2026 Clothes Forest. All rights reserved.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                Facebook
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* =========================================
+           CART STORAGE
+        ========================================= */
+
+        const CART_KEY = "clothesForestCart";
+
+
+        /* =========================================
+           GET CART
+        ========================================= */
+
+        function getCart() {
+
+            let cart =
+                localStorage.getItem(CART_KEY);
+
+            if (!cart) {
+                return [];
+            }
+
+            try {
+
+                return JSON.parse(cart);
+
+            }
+
+            catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+
+        /* =========================================
+           SAVE CART
+        ========================================= */
+
+        function saveCart(cart) {
+
+            localStorage.setItem(
+                CART_KEY,
+                JSON.stringify(cart)
+            );
+
+        }
+
+
+        /* =========================================
+           DISPLAY CART
+        ========================================= */
+
+        function displayCart() {
+
+            const cart = getCart();
+
+            const container =
+                document.getElementById("cartContainer");
+
+            const emptyCart =
+                document.getElementById("emptyCart");
+
+
+            updateCartCount(cart);
+
+
+            if (cart.length === 0) {
+
+                container.innerHTML = "";
+
+                emptyCart.style.display = "block";
+
+                updateSummary([]);
+
+                return;
+
+            }
+
+
+            emptyCart.style.display = "none";
+
+
+            let html = "";
+
+
+            cart.forEach((product, index) => {
+
+                const quantity =
+                    product.quantity || 1;
+
+                const price =
+                    Number(product.price) || 0;
+
+                const itemTotal =
+                    price * quantity;
+
+
+                html += `
+
+                    <div class="cart-product">
+
+                        <img
+                            src="${product.image || 'https://via.placeholder.com/150'}"
+                            alt="${product.name}"
+                        >
+
+
+                        <div class="product-info">
+
+                            <p class="product-category">
+                                ${product.category || "Fashion"}
+                            </p>
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+                            <div class="product-price">
+                                ₹${price.toLocaleString("en-IN")}
+                            </div>
+
+
+                            <div class="quantity">
+
+                                <button
+                                    onclick="decreaseQuantity(${index})">
+
+                                    −
+
+                                </button>
+
+                                <span>
+                                    ${quantity}
+                                </span>
+
+                                <button
+                                    onclick="increaseQuantity(${index})">
+
+                                    +
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="product-right">
+
+                            <div class="item-total">
+
+                                ₹${itemTotal.toLocaleString("en-IN")}
+
+                            </div>
+
+                            <button
+                                class="remove-btn"
+                                onclick="removeItem(${index})">
+
+                                Remove
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            container.innerHTML = html;
+
+            updateSummary(cart);
+
+        }
+
+
+        /* =========================================
+           CART COUNT
+        ========================================= */
+
+        function updateCartCount(cart) {
+
+            let count = 0;
+
+
+            cart.forEach(product => {
+
+                count += product.quantity || 1;
+
+            });
+
+
+            document.getElementById("cartCount")
+                .textContent = count;
+
+        }
+
+
+        /* =========================================
+           INCREASE
+        ========================================= */
+
+        function increaseQuantity(index) {
+
+            let cart = getCart();
+
+
+            cart[index].quantity =
+                (cart[index].quantity || 1) + 1;
+
+
+            saveCart(cart);
+
+            displayCart();
+
+        }
+
+
+        /* =========================================
+           DECREASE
+        ========================================= */
+
+        function decreaseQuantity(index) {
+
+            let cart = getCart();
+
+
+            if ((cart[index].quantity || 1) > 1) {
+
+                cart[index].quantity--;
+
+            }
+
+            else {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            saveCart(cart);
+
+            displayCart();
+
+        }
+
+
+        /* =========================================
+           REMOVE
+        ========================================= */
+
+        function removeItem(index) {
+
+            let cart = getCart();
+
+
+            cart.splice(index, 1);
+
+
+            saveCart(cart);
+
+            displayCart();
+
+        }
+
+
+        /* =========================================
+           CLEAR CART
+        ========================================= */
+
+        function clearCart() {
+
+            const cart = getCart();
+
+
+            if (cart.length === 0) {
+                return;
+            }
+
+
+            if (
+                !confirm(
+                    "Are you sure you want to clear your cart?"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(CART_KEY);
+
+            displayCart();
+
+        }
+
+
+        /* =========================================
+           SUMMARY
+        ========================================= */
+
+        function updateSummary(cart) {
+
+            let subtotal = 0;
+
+
+            cart.forEach(product => {
+
+                const price =
+                    Number(product.price) || 0;
+
+                const quantity =
+                    product.quantity || 1;
+
+
+                subtotal +=
+                    price * quantity;
+
+            });
+
+
+            /* DELIVERY */
+
+            let delivery = 0;
+
+
+            if (
+                subtotal > 0 &&
+                subtotal < 999
+            ) {
+
+                delivery = 79;
+
+            }
+
+
+            /* DISCOUNT */
+
+            let discount = 0;
+
+
+            const coupon =
+                localStorage.getItem(
+                    "clothesForestCoupon"
+                );
+
+
+            if (coupon === "FOREST30") {
+
+                discount =
+                    Math.round(
+                        subtotal * 0.30
+                    );
+
+            }
+
+
+            const total =
+                subtotal +
+                delivery -
+                discount;
+
+
+            document.getElementById("subtotal")
+                .textContent =
+                "₹" +
+                subtotal.toLocaleString("en-IN");
+
+
+            document.getElementById("delivery")
+                .textContent =
+                delivery === 0
+                    ? "FREE"
+                    : "₹" +
+                      delivery.toLocaleString("en-IN");
+
+
+            document.getElementById("discount")
+                .textContent =
+                "- ₹" +
+                discount.toLocaleString("en-IN");
+
+
+            document.getElementById("total")
+                .textContent =
+                "₹" +
+                Math.max(total, 0)
+                    .toLocaleString("en-IN");
+
+        }
+
+
+        /* =========================================
+           COUPON
+        ========================================= */
+
+        function applyCoupon() {
+
+            const input =
+                document.getElementById(
+                    "couponInput"
+                );
+
+
+            const message =
+                document.getElementById(
+                    "couponMessage"
+                );
+
+
+            const code =
+                input.value
+                    .trim()
+                    .toUpperCase();
+
+
+            if (code === "FOREST30") {
+
+                localStorage.setItem(
+                    "clothesForestCoupon",
+                    "FOREST30"
+                );
+
+
+                message.textContent =
+                    "✓ 30% discount applied!";
+
+                message.style.color =
+                    "#16a34a";
+
+
+                displayCart();
+
+            }
+
+            else {
+
+                localStorage.removeItem(
+                    "clothesForestCoupon"
+                );
+
+
+                message.textContent =
+                    "Invalid coupon code.";
+
+                message.style.color =
+                    "#e63946";
+
+
+                displayCart();
+
+            }
+
+        }
+
+
+        /* =========================================
+           CHECKOUT
+        ========================================= */
+
+        function checkout() {
+
+            const cart = getCart();
+
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty. Please add some products first."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Checkout page will be connected next."
+            );
+
+        }
+
+
+        /* =========================================
+           LOAD
+        ========================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                displayCart();
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

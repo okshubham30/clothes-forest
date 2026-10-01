@@ -45,7 +45,7 @@ body {
 
 .logo span,
 .footer-logo span {
-    color: #ff4d6d;
+    color: #00bfff;
 }
 
 .navbar nav {
@@ -62,7 +62,7 @@ body {
 }
 
 .navbar nav a:hover {
-    color: #ff4d6d;
+    color: #00bfff;
 }
 
 .nav-actions {
@@ -89,7 +89,7 @@ body {
     position: absolute;
     top: -10px;
     right: -10px;
-    background: #ff4d6d;
+    background: #00bfff;
     color: white;
     font-size: 10px;
     width: 17px;
@@ -112,7 +112,7 @@ body {
 }
 
 .login-btn:hover {
-    background: #ff4d6d;
+    background: #00bfff;
 }
 
 
@@ -178,7 +178,7 @@ body {
 }
 
 .small-title {
-    color: #ff4d6d;
+    color: #00bfff;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -192,7 +192,7 @@ body {
 }
 
 .hero h1 span {
-    color: #ff4d6d;
+    color: #00bfff;
 }
 
 .hero p:not(.small-title) {
@@ -205,7 +205,7 @@ body {
 
 .shop-btn {
     display: inline-block;
-    background: #ff4d6d;
+    background: #00bfff;
     color: white;
     padding: 14px 28px;
     text-decoration: none;
@@ -338,7 +338,7 @@ body {
     top: 15px;
     left: 15px;
     z-index: 2;
-    background: #ff4d6d;
+    background: #00bfff;
     color: white;
     padding: 6px 10px;
     border-radius: 3px;
@@ -380,7 +380,7 @@ body {
 }
 
 .product-info button:hover {
-    background: #ff4d6d;
+    background: #00bfff;
 }
 
 
@@ -404,7 +404,7 @@ body {
 }
 
 .offer p {
-    color: #ff4d6d;
+    color: #00bfff;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -421,7 +421,7 @@ body {
 
 .offer button {
     border: none;
-    background: #ff4d6d;
+    background: #00bfff;
     color: white;
     padding: 13px 28px;
     border-radius: 4px;
@@ -496,7 +496,7 @@ footer p {
 }
 
 .footer-links a:hover {
-    color: #ff4d6d;
+    color: #00bfff;
 }
 
 
